@@ -12,9 +12,14 @@ pipeline {
     }
   stages {
     stage('Compile') {
-      steps {
-        echo "compiling teh code ${params.PERSON}"
-      }
+      when {
+        expression {
+          params.TOGGLE == true
+            steps {
+              echo "compiling teh code ${params.PERSON}"
+            }
+        }
+      }  
     }
     stage('UnitTest') {
       steps {
