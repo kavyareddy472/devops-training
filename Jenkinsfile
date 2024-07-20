@@ -29,6 +29,7 @@ pipeline {
     stage('Package') {
        steps {
           echo "Package teh code"
+          sh 'mvn clean package'
        }
     }
     stage('deploy') {
