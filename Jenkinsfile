@@ -35,7 +35,7 @@ pipeline {
       input {
         message "please enter the env to build on"
         parameters { 
-          choice(name: 'ENV', choices ['prod','cob','pte'], description: 'pick the environment')
+          choice(name: 'ENVi', choices ['prod','cob','pte'], description: 'pick the environment')
         }
       }
       steps {
