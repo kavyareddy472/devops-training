@@ -34,7 +34,7 @@ pipeline {
     stage('deploy') {
       input {
         message "please enter the env to build on"
-        paramaters { 
+        parameters { 
           choice(name: 'ENV', choices ['prod','cob','pte'], description: 'pick the environment')
         }
       }
