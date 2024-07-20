@@ -31,6 +31,17 @@ pipeline {
           echo "Package teh code"
        }
     }
+    stage('Package') {
+      input {
+        message "please enter the env to build on"
+        paramaters { 
+          choice(name: 'ENV', choices ['prod','cob','pte'], description: 'pick the env')
+        }
+      }
+      steps {
+          echo "Package teh code"
+      }
+    }
   }
 }
 
