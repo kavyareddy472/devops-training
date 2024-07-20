@@ -31,11 +31,11 @@ pipeline {
           echo "Package teh code"
        }
     }
-    stage('Package') {
+    stage('deploy') {
       input {
         message "please enter the env to build on"
         paramaters { 
-          choice(name: 'ENV', choices ['prod','cob','pte'], description: 'pick the env')
+          choice(name: 'ENV', choices ['prod','cob','pte'], description: 'pick the environment')
         }
       }
       steps {
