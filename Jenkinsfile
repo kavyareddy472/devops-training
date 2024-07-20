@@ -13,12 +13,12 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        echo "compiling teh code"
+        echo "compiling teh code" ${params.PERSON}
       }
     }
     stage('UnitTest') {
       steps {
-        echo "Test teh code"
+        echo "Test teh code" ${params.CHOICE}
       }
     }
     stage('Package') {
