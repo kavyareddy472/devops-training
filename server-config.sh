@@ -6,15 +6,15 @@ sudo yum install git -y
 sudo yum install docker -y
 sudo systemctl start docker
 
-if [ -d "addressbook" ]
+if [ -d "devops-training" ]
 then
    echo "repo is already cloned and exists"
-   cd /home/ec2-user/addressbook
-   git pull origin feature/docker
+   cd /home/ec2-user/devops-training
+   git pull origin feature/ssh
 else
-   git clone https://github.com/preethid/addressbook.git
-   cd addressbook
-   git checkout feature/docker
+   git clone https://github.com/kavyareddy472/devops-training.git
+   cd devops-training
+   git checkout feature/ssh
 fi
 
 # export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.402.b06-1.amzn2.0.1.x86_64
@@ -22,4 +22,4 @@ fi
 # source /etc/profile
 # mvn package
 
-sudo docker build -t $1:$2 /home/ec2-user/addressbook
+sudo docker build -t $1:$2 /home/ec2-user/devops-training
