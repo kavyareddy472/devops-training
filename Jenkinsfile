@@ -55,7 +55,7 @@ pipeline {
                 sh "scp -o StricthostkeyChecking=no server-config.sh ${BUILD_SERVER_IP}:/home/ec2-user"
                 sh "ssh -o strictHostKeyChecking=no ${BUILD_SERVER_IP} bash 'server-config.sh ${IMAGE_NAME} ${BUILD_NUMBER}'"
                 sh "ssh ${BUILD_SERVER_IP} sudo docker login -u ${username} -p ${password}"
-                sh "docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
+                sh "ssh ${BUILD_SERVER_IP} sudo docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
 
                 }
               }
