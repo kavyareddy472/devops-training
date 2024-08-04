@@ -53,7 +53,7 @@ pipeline {
                 sshagent(['slave2']) {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password', usernameVariable: 'username')]) {
                 sh "scp -o StricthostkeyChecking=no server-config.sh ${BUILD_SERVER_IP}:/home/ec2-user"
-                sh "ssh -o strictHostKeyChecking=no ${BUILD_SERVER_IP} bash 'cd /home/ec2-user/server-config.sh ${IMAGE_NAME} ${BUILD_NUMBER}'"
+                sh "ssh -o strictHostKeyChecking=no ${BUILD_SERVER_IP} bash 'server-config.sh ${IMAGE_NAME} ${BUILD_NUMBER}'"
                 sh "ssh ${BUILD_SERVER_IP} sudo docker login -u ${username} -p ${password}"
                 sh "docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
 
